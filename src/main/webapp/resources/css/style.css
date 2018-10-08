@@ -1,0 +1,13 @@
+#user-form {
+	background-color: #fafafa;
+	margin-left: auto;
+	margin-right: auto;
+	width: 400px;
+}
+
+#top {
+	background-color: #343a40;
+	color: #fff;
+	padding: 15px 0;
+	width: 100%;
+}
