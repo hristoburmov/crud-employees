@@ -15,14 +15,14 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		
-		<spring.framework.version>5.0.9.RELEASE</spring.framework.version>
-		<spring.security.version>5.0.8.RELEASE</spring.security.version>
+		<spring.framework.version>5.0.13.RELEASE</spring.framework.version>
+		<spring.security.version>5.0.12.RELEASE</spring.security.version>
 	</properties>
 
 	<!-- Dependencies -->
 	<dependencies>
 	
-		<!-- Spring -->
+		<!-- Spring Framework -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -72,22 +72,22 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.12</version>
+			<version>8.0.15</version>
 		</dependency>
 		<dependency>
 			<groupId>com.mchange</groupId>
 			<artifactId>c3p0</artifactId>
-			<version>0.9.5.2</version>
+			<version>0.9.5.4</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>5.3.6.Final</version>
+			<version>5.3.9.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>6.0.13.Final</version>
+			<version>6.0.16.Final</version>
 		</dependency>
 		
 		<!-- WebJars -->
@@ -108,7 +108,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>3.8.2</version>
 			<scope>test</scope>
 		</dependency>
 	
@@ -120,7 +120,7 @@
 		<pluginManagement>
 			<plugins>
 			
-				<!-- Maven War -->
+				<!-- Maven WAR -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-war-plugin</artifactId>
