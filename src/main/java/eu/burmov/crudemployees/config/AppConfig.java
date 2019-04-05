@@ -32,8 +32,13 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @PropertySource("classpath:db.properties")
 public class AppConfig implements WebMvcConfigurer {
 	
-	@Autowired
 	private Environment env;
+	
+	// Constructors
+	@Autowired
+	public AppConfig(Environment env) {
+		this.env = env;
+	}
 	
 	// Database
 	@Bean

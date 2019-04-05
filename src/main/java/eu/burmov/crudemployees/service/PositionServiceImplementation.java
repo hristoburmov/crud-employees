@@ -13,8 +13,13 @@ import eu.burmov.crudemployees.entity.Position;
 @Service
 public class PositionServiceImplementation implements PositionService {
 	
-	@Autowired
 	private PositionDao positionDao;
+
+	// Constructors
+	@Autowired
+	public PositionServiceImplementation(PositionDao positionDao) {
+		this.positionDao = positionDao;
+	}
 
 	@Override
 	@Transactional

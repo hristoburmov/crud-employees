@@ -25,16 +25,20 @@ import eu.burmov.crudemployees.user.UserDetails;
 @RequestMapping("/auth")
 public class AuthenticationController {
 	
-	@Autowired
 	private UserDetailsManager userManager;
-	
 	private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	
+	// Constructors
+	@Autowired
+	public AuthenticationController(UserDetailsManager userManager) {
+		this.userManager = userManager;
+	}
 	
 	@RequestMapping("/denied")
 	public String denied() {
 		return "authentication/denied";
 	}
-	
+
 	// Login
 	@RequestMapping(method = RequestMethod.GET, value = "/login")
 	public String loginForm() {

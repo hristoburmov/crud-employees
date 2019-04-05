@@ -12,8 +12,13 @@ import eu.burmov.crudemployees.entity.Office;
 @Repository
 public class OfficeDaoImplementation implements OfficeDao {
 	
-	@Autowired
 	private SessionFactory factory;
+	
+	// Constructors
+	@Autowired
+	public OfficeDaoImplementation(SessionFactory factory) {
+		this.factory = factory;
+	}
 
 	@Override
 	public List<Office> getOffices() {

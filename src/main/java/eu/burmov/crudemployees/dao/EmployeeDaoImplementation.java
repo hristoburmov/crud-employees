@@ -12,15 +12,20 @@ import eu.burmov.crudemployees.entity.Employee;
 @Repository
 public class EmployeeDaoImplementation implements EmployeeDao {
 	
-	@Autowired
 	private SessionFactory factory;
+	
+	// Constructors
+	@Autowired
+	public EmployeeDaoImplementation(SessionFactory factory) {
+		this.factory = factory;
+	}
 
 	@Override
 	public List<Employee> getEmployees() {
 		Session session = factory.getCurrentSession();
 		return (session.createQuery("from Employee", Employee.class)).getResultList();
 	}
-
+	
 	@Override
 	public Employee getEmployee(int id) {
 		Session session = factory.getCurrentSession();

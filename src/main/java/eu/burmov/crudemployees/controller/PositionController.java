@@ -18,8 +18,13 @@ import eu.burmov.crudemployees.service.PositionService;
 @RequestMapping("/positions")
 public class PositionController {
 	
-	@Autowired
 	private PositionService positionService;
+	
+	// Constructors
+	@Autowired
+	public PositionController(PositionService positionService) {
+		this.positionService = positionService;
+	}
 	
 	// Pages
 	@RequestMapping(method = RequestMethod.GET, value = "/list")

@@ -18,8 +18,13 @@ import eu.burmov.crudemployees.service.OfficeService;
 @RequestMapping("/offices")
 public class OfficeController {
 	
-	@Autowired
 	private OfficeService officeService;
+	
+	// Constructors
+	@Autowired
+	public OfficeController(OfficeService officeService) {
+		this.officeService = officeService;
+	}
 	
 	// Pages
 	@RequestMapping(method = RequestMethod.GET, value = "/list")

@@ -12,8 +12,13 @@ import eu.burmov.crudemployees.entity.Position;
 @Repository
 public class PositionDaoImplementation implements PositionDao {
 	
-	@Autowired
 	private SessionFactory factory;
+	
+	// Constructors
+	@Autowired
+	public PositionDaoImplementation(SessionFactory factory) {
+		this.factory = factory;
+	}
 
 	@Override
 	public List<Position> getPositions() {

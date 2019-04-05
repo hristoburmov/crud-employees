@@ -12,9 +12,14 @@ import eu.burmov.crudemployees.entity.Office;
 
 @Service
 public class OfficeServiceImplementation implements OfficeService {
-	
-	@Autowired
+
 	private OfficeDao officeDao;
+
+	// Constructors
+	@Autowired
+	public OfficeServiceImplementation(OfficeDao officeDao) {
+		this.officeDao = officeDao;
+	}
 
 	@Override
 	@Transactional

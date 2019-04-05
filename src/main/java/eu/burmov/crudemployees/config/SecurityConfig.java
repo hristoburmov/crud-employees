@@ -13,8 +13,13 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
-	@Autowired
 	private DataSource dataSource;
+	
+	// Constructors
+	@Autowired
+	public SecurityConfig(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {

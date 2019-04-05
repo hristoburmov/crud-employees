@@ -13,8 +13,13 @@ import eu.burmov.crudemployees.entity.Employee;
 @Service
 public class EmployeeServiceImplementation implements EmployeeService {
 	
-	@Autowired
 	private EmployeeDao employeeDao;
+	
+	// Constructors
+	@Autowired
+	public EmployeeServiceImplementation(EmployeeDao employeeDao) {
+		this.employeeDao = employeeDao;
+	}
 
 	@Override
 	@Transactional
