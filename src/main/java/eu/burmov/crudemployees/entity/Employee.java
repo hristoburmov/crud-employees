@@ -24,24 +24,24 @@ public class Employee {
 	private int id;
 	
 	@Column(name = "first_name")
-	@NotNull(message = "First name is required")
-	@Size(min = 2, max = 64, message = "First name must be {min}-{max} characters")
+	@NotNull(message = "{firstName.null}")
+	@Size(min = 2, max = 64, message = "{firstName.size}")
 	private String firstName;
 	
 	@Column(name = "last_name")
-	@NotNull(message = "Last name is required")
-	@Size(min = 2, max = 64, message = "Last name must be {min}-{max} charactes")
+	@NotNull(message = "{lastName.null}")
+	@Size(min = 2, max = 64, message = "{lastName.size}")
 	private String lastName;
 	
 	@Column(name = "email")
-	@Email(message = "Email is invalid")
-	@NotNull(message = "Email is required")
-	@Size(min = 10, max = 128, message = "Email must be {min}-{max} characters")
+	@Email(message = "{email.invalid}")
+	@NotNull(message = "{email.null}")
+	@Size(min = 10, max = 128, message = "{email.size}")
 	private String email;
 	
 	@Column(name = "salary")
-	@NotNull(message = "Salary is required")
-	@Range(min = 1, max = 9999, message = "Salary must be between {min}-{max}")
+	@NotNull(message = "{salary.null}")
+	@Range(min = 1, max = 9999, message = "{salary.range}")
 	private Integer salary;
 	
 	@ManyToOne

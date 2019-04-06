@@ -22,8 +22,8 @@ public class Position {
 	private int id;
 	
 	@Column(name = "title")
-	@NotNull(message = "Title is required")
-	@Size(min = 3, max = 64, message = "Title must be {min}-{max} characters")
+	@NotNull(message = "{title.null}")
+	@Size(min = 3, max = 64, message = "{title.size}")
 	private String title;
 	
 	@OneToMany(mappedBy = "position")

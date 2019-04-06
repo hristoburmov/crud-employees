@@ -17,6 +17,8 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -88,6 +90,14 @@ public class AppConfig implements WebMvcConfigurer {
 		source.setBasename("messages");
 		source.setDefaultEncoding("UTF-8");
 		return source;
+	}
+	
+	// Validator
+	@Bean
+	public Validator getValidator() {
+		LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
+		validator.setValidationMessageSource(messageSource());
+		return validator;
 	}
 	
 	// View

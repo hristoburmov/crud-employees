@@ -24,17 +24,17 @@ public class Office {
 	private int id;
 	
 	@Column(name = "name")
-	@NotNull(message = "Name is required")
-	@Size(min = 2, max = 64, message = "Name must be {min}-{max} characters")
+	@NotNull(message = "{name.null}")
+	@Size(min = 2, max = 64, message = "{name.size}")
 	private String name;
 	
 	@Column(name = "post_code")
-	@Range(min = 1000, max = 9999, message = "Post code must be a 4-digit number")
+	@Range(min = 1000, max = 9999, message = "{postCode.range}")
 	private Integer postCode;
 	
 	@Column(name = "location")
-	@NotNull(message = "Location is required")
-	@Size(min = 5, max = 128, message = "Location must be {min}-{max} characters")
+	@NotNull(message = "{location.null}")
+	@Size(min = 5, max = 128, message = "{location.size}")
 	private String location;
 	
 	@OneToMany(mappedBy = "office")
