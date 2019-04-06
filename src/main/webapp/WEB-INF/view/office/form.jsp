@@ -31,23 +31,25 @@
 			</ul>
 			<div class="clearfix mt-5">
 				<h2 class="float-left">Office Form</h2>
-				<a class="btn btn-dark float-right" href="${ pageContext.request.contextPath }/offices/list" role="button">Back to all offices</a>
+				<a class="btn btn-danger float-right" href="${ pageContext.request.contextPath }/offices/list" role="button">Back</a>
 			</div>
 		</header>
 		<div class="content mt-3">
 			<form:form action="${ pageContext.request.contextPath }/offices/save" method="POST" modelAttribute="office">
 				<core:set var="errors">
-					<form:errors path="*" class="text-center" />
+					<form:errors path="name" element="p" cssClass="mb-0" />
+					<form:errors path="postCode" element="p" cssClass="mb-0" />
+					<form:errors path="location" element="p" cssClass="mb-0" />
 				</core:set>
 				<core:if test="${ not empty errors }">
-					<div class="alert alert-danger">
+					<div class="alert alert-danger text-center">
 						${ errors }
 					</div>
 				</core:if>
 				<form:hidden path="id" />
 				<div class="form-row">
 					<div class="form-group col-xl-4">
-						<form:label path="name">Name</form:label>
+						<form:label path="name">Name*</form:label>
 						<form:input path="name" class="form-control" />
 					</div>
 					<div class="form-group col-xl-4">
@@ -55,11 +57,11 @@
 						<form:input path="postCode" class="form-control" />
 					</div>
 					<div class="form-group col-xl-4">
-						<form:label path="location">Location</form:label>
+						<form:label path="location">Location*</form:label>
 						<form:input path="location" class="form-control" />
 					</div>
 				</div>
-				<input type="submit" value="Save" class="btn btn-success">
+				<input type="submit" value="Save" class="btn btn-success float-right">
 			</form:form>
 		</div>
 	</div>

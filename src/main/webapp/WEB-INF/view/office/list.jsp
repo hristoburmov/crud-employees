@@ -31,25 +31,27 @@
 			</ul>
 			<div class="clearfix mt-5">
 				<h2 class="float-left">Offices</h2>
-				<a class="btn btn-dark float-right" href="${ pageContext.request.contextPath }/offices/add" role="button">Add office</a>
+				<a class="btn btn-success float-right" href="${ pageContext.request.contextPath }/offices/add" role="button">Add</a>
 			</div>
 		</header>
 		<div class="content mt-3">
-			<table class="table table-striped table-hover table-bordered">
+			<table class="table table-striped table-hover">
 				<thead>
-					<th>Name</th>
-					<th>Post Code</th>
-					<th>Location</th>
-					<th class="text-center">Actions</th>
+					<tr class="d-flex">
+						<th class="col-3">Name</th>
+						<th class="col-2">Post Code</th>
+						<th class="col-5">Location</th>
+						<th class="col-2 text-center">Actions</th>
+					</tr>
 				</thead>
 				<tbody>
 					<core:forEach var="office" items="${ offices }">
-						<tr>
-							<td class="align-middle">${ office.name }</td>
-							<td class="align-middle">${ office.postCode }</td>
-							<td class="align-middle">${ office.location }</td>
-							<td class="align-middle text-center">
-								<a class="btn btn-info" href="${ pageContext.request.contextPath }/offices/update?id=${ office.id }" role="button">Update</a>
+						<tr class="d-flex">
+							<td class="col-3 d-flex align-items-center">${ office.name }</td>
+							<td class="col-2 d-flex align-items-center">${ office.postCode }</td>
+							<td class="col-5 d-flex align-items-center">${ office.location }</td>
+							<td class="col-2 d-flex align-items-center justify-content-center">
+								<a class="btn btn-primary mr-1" href="${ pageContext.request.contextPath }/offices/update?id=${ office.id }" role="button">Update</a>
 								<a class="btn btn-danger" href="${ pageContext.request.contextPath }/offices/delete?id=${ office.id }" role="button" onclick="if(!confirm('Are you sure you want to delete this office?')) return false;">Delete</a>
 							</td>
 						</tr>

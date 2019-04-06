@@ -31,41 +31,50 @@
 			</ul>
 			<div class="clearfix mt-5">
 				<h2 class="float-left">Employee Form</h2>
-				<a class="btn btn-dark float-right" href="${ pageContext.request.contextPath }/employees/list" role="button">Back to all employees</a>
+				<a class="btn btn-danger float-right" href="${ pageContext.request.contextPath }/employees/list" role="button">Back</a>
 			</div>
 		</header>
 		<div class="content mt-3">
 			<form:form action="${ pageContext.request.contextPath }/employees/save" method="POST" modelAttribute="employee">
 				<core:set var="errors">
-					<form:errors path="*" class="text-center" />
+					<form:errors path="firstName" element="p" cssClass="mb-0" />
+					<form:errors path="lastName" element="p" cssClass="mb-0" />
+					<form:errors path="email" element="p" cssClass="mb-0" />
+					<form:errors path="position.id" element="p" cssClass="mb-0" />
+					<form:errors path="office.id" element="p" cssClass="mb-0" />
+					<form:errors path="salary" element="p" cssClass="mb-0" />
 				</core:set>
 				<core:if test="${ not empty errors }">
-					<div class="alert alert-danger">
+					<div class="alert alert-danger text-center">
 						${ errors }
 					</div>
 				</core:if>
 				<form:hidden path="id" />
 				<div class="form-row">
 					<div class="form-group col-xl-4">
-						<form:label path="firstName">First Name</form:label>
+						<form:label path="firstName">First Name*</form:label>
 						<form:input path="firstName" class="form-control" />
 					</div>
 					<div class="form-group col-xl-4">
-						<form:label path="email">Email</form:label>
-						<form:input path="email" class="form-control" />
+						<form:label path="lastName">Last Name*</form:label>
+						<form:input path="lastName" class="form-control" />
 					</div>
 					<div class="form-group col-xl-4">
-						<form:label path="position.id">Position</form:label>
-						<form:select path="position.id" items="${ positions }" itemLabel="title" itemValue="id" class="custom-select" />
+						<form:label path="email">Email*</form:label>
+						<form:input path="email" class="form-control" />
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-xl-4">
-						<form:label path="lastName">Last Name</form:label>
-						<form:input path="lastName" class="form-control" />
+						<form:label path="position.id">Position*</form:label>
+						<form:select path="position.id" items="${ positions }" itemLabel="title" itemValue="id" class="custom-select" />
 					</div>
 					<div class="form-group col-xl-4">
-						<form:label path="salary">Salary</form:label>
+						<form:label path="office.id">Office*</form:label>
+						<form:select path="office.id" items="${ offices }" itemLabel="name" itemValue="id" class="custom-select" />
+					</div>
+					<div class="form-group col-xl-4">
+						<form:label path="salary">Salary*</form:label>
 						<div class="input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="dollarSign">$</span>
@@ -73,12 +82,8 @@
 							<form:input path="salary" class="form-control" area-describedby="dollarSign" />
 						</div>
 					</div>
-					<div class="form-group col-xl-4">
-						<form:label path="office.id">Office</form:label>
-						<form:select path="office.id" items="${ offices }" itemLabel="name" itemValue="id" class="custom-select" />
-					</div>
 				</div>
-				<input type="submit" value="Save" class="btn btn-success">
+				<input type="submit" value="Save" class="btn btn-success float-right">
 			</form:form>
 		</div>
 	</div>

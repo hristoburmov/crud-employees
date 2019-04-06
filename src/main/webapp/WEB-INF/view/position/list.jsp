@@ -31,21 +31,23 @@
 			</ul>
 			<div class="clearfix mt-5">
 				<h2 class="float-left">Positions</h2>
-				<a class="btn btn-dark float-right" href="${ pageContext.request.contextPath }/positions/add" role="button">Add position</a>
+				<a class="btn btn-success float-right" href="${ pageContext.request.contextPath }/positions/add" role="button">Add</a>
 			</div>
 		</header>
 		<div class="content mt-3">
-			<table class="table table-striped table-hover table-bordered">
+			<table class="table table-striped table-hover">
 				<thead>
-					<th>Title</th>
-					<th class="text-center">Actions</th>
+					<tr class="d-flex">
+						<th class="col-10">Title</th>
+						<th class="col-2 text-center">Actions</th>
+					</tr>
 				</thead>
 				<tbody>
 					<core:forEach var="position" items="${ positions }">
-						<tr>
-							<td class="align-middle">${ position.title }</td>
-							<td class="align-middle text-center">
-								<a class="btn btn-info" href="${ pageContext.request.contextPath }/positions/update?id=${ position.id }" role="button">Update</a>
+						<tr class="d-flex">
+							<td class="col-10 d-flex align-items-center">${ position.title }</td>
+							<td class="col-2 d-flex align-items-center justify-content-center">
+								<a class="btn btn-primary mr-1" href="${ pageContext.request.contextPath }/positions/update?id=${ position.id }" role="button">Update</a>
 								<a class="btn btn-danger" href="${ pageContext.request.contextPath }/positions/delete?id=${ position.id }" role="button" onclick="if(!confirm('Are you sure you want to delete this position?')) return false;">Delete</a>
 							</td>
 						</tr>
