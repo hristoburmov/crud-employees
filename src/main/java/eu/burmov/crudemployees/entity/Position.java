@@ -2,6 +2,7 @@ package eu.burmov.crudemployees.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,8 +27,8 @@ public class Position {
 	@Size(min = 3, max = 64, message = "{title.size}")
 	private String title;
 	
-	@OneToMany(mappedBy = "position")
-	private List<Employee> employee;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "position")
+	private List<Employee> employees;
 	
 	// Constructors
 	public Position() {}
@@ -47,6 +48,12 @@ public class Position {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public List<Employee> getEmployees() {
+		return employees;
+	}
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
 	}
 
 }
